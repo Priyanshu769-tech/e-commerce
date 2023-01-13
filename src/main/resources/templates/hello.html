@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome to BLAH</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <h1 style="background-color:#D75B69; padding: 0.4em ;color: #3D314A; font-family: 'Raleway', sans-serif; font-size: 3em;font-weight: 600; text-align: center">Welcome to SHOPPER'S DAILY</h1>
+
+    <div class="homepage">
+        <ul style="list-style: none;">
+            <li style="padding-left: 20em;
+    float:left;
+    align-items: center;"><a th:href="@{/register}" style="display: block;
+    color: #3D314A;
+    align-items: center;
+    text-align: center;
+    padding: 1em 1em;
+    font-size: 1.5em;
+    border-radius: 0.3em;
+    text-decoration: none;
+    background-color: #7FE067; font-family: 'Raleway', sans-serif">Register</a></li>
+            <li style="padding-left: 18em;
+    float:left;
+    align-items: center;"><a th:href="@{/login}" style="display: block;
+    color: #3D314A;
+    align-items: center;
+    text-align: center;
+    padding: 1em 1em;
+    font-size: 1.5em;
+    text-decoration: none;
+    border-radius: 0.3em;
+    background-color: #7FE067;font-family: 'Raleway', sans-serif">Login</a></li>
+    </div>
+
+
+</body>
+</html>

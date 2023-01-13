@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta character="ISO-8859-1">
+  <title>CREATE CATEGORIES</title>
+</head>
+<body>
+<div><h1 style="background-color:#D75B69; padding: 1em ;color: #3D314A; font-family: 'Raleway', sans-serif; margin-top: 1em; font-size: 3em; text-align: center;font-weight: 600">Create a Category</h1></div>
+<form action="#" th:action="@{/categories/save}" th:object="${category}" method="post">
+  <label style="color: #3D314A; font-family: 'Raleway', sans-serif; text-align: center;  margin-left: 26em; font-weight: 600">Name: </label>
+  <input type="text" th:field="*{name}"/>
+  <input type="submit" name="Submit" id="Submit" value="Submit" style="color: #3D314A; font-family: 'Raleway', sans-serif; background-color: #7FE067; border-color: #7FE067; padding: 0.7em; margin-left: 12em">
+</form>
+
+</body>
+</html>

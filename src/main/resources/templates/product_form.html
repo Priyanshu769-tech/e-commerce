@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Product</title>
+</head>
+<body>
+<div align="center">
+  <h1 style="background-color:#D75B69; padding: 1em ;color: #3D314A; font-family: 'Raleway', sans-serif; margin-top: 1em; font-size: 3em;font-weight: 600">Create New Product</h1>
+
+  <form action="#" th:action="@{/products/save}" th:object="${product}" method="post"  enctype="multipart/form-data">
+
+    <div class="row">
+      <div class="col-sm-5"style="padding: 1em">
+
+        <input type="hidden" name="id" th:field="*{id}">
+        <div class="form-group">
+          <label for="name"style="padding: 1em;font-weight: 600">Name</label>
+          <input type="text" class="form-control" required th:field="*{name}" name="name" id="name"
+                 placeholder="Enter name">
+
+        </div>
+        <div class="form-group"style="padding: 1em">
+          <label form="category"style="padding: 1em;font-weight: 600">Select Category</label>
+          <select th:field="*{category}" >
+            <th:block th:each="cate :${listCategories}">
+              <option th:text="${cate.name}" th:value="${cate.id}"/>
+            </th:block>
+          </select>
+
+        </div>
+        <div class="form-group"style="padding: 1em">
+          <label for="price"style="padding: 1em;font-weight: 600">Price</label>
+          <input type="number" class="form-control" required th:field="*{price}" name="price" id="price"
+                 placeholder="Price">
+        </div>
+
+        <div class="col-sm-5"style="padding: 1em">
+          <p style=" font-weight: 600">Product Image</p>
+          <div class="custom-file">
+            <input type="file"  class="custom-file-input" name="productImage" accept="image/jpeg, image/png"  id="productImage"/>
+            <label class="custom-file-label" for="productImage"style="padding: 1em">Choose file</label>
+          </div>
+          <div class="form-group">
+            <img src="#" id="imgPreview" height="100px" width="100px" th:src="@{${'/productImages/' + product.imageName}}" style="margin-top: 20px" alt=" ">
+          </div>
+          <input type="hidden" name="imgName" th:value="${product.imageName}">
+          <button type="submit" class="btn btn-primary" style="background-color: #7FE067; border-color: #7FE067; border-radius: 0.5 em; margin-top: 4em">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</form>
+
+</div>
+
+</body>
+</html>

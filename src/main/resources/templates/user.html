@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LIST PRODUCTS</title>
+</head>
+<div align="center">
+  <h1 style="background-color:#D75B69; padding: 1em ;color: #3D314A; font-family: 'Raleway', sans-serif; margin-top: 1em; font-size: 3em"> Users</h1>
+  <div>
+    <form th:action="@{/user}">
+      Filter:
+      <input type="text" name="keyword"/>
+      &nbsp;
+      <input type="submit" value="Search"/>
+      &nbsp;
+      <input type="button" value="Clear"/>
+    </form>
+  </div>
+  <div>
+    <table>
+      <thead>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif; padding: 1em;font-weight: 600">ID</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">First Name</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Last Name</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Email</th>
+
+
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em">Delete</th>
+
+      <thead>
+      </thead>
+      <tbody>
+      <tr th:each="users : ${listUsers}">
+        <td th:text="${users.id}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">User ID</td>
+        <td th:text="${users.firstName}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">First Name</td>
+        <td th:text="${users.lastName}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Last name</td>
+        <td th:text="${users.email}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Email id</td>
+
+
+
+        <td style="color: #3D314A; font-family: 'Raleway', sans-serif; background-color: #7FE067; border-color: #7FE067; padding: 0.7em; align-self: center"><a th:href="@{'/user/delete/' +${users.id}}">Delete</a></td>
+        </td>
+        <td></td>
+
+      </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+</div>
+
+<body>
+
+</body>
+</html>

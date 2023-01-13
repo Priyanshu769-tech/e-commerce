@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Online Supermarket</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+  <!-- //for-mobile-apps -->
+  <base href="/">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <!-- font-awesome icons -->
+  <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- //font-awesome icons -->
+  <!-- js -->
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <!-- //js -->
+
+  <link
+          href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+          rel='stylesheet' type='text/css'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- start-smoth-scrolling -->
+  <script type="text/javascript" src="js/move-top.js"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+      });
+    });
+  </script>
+  <!-- start-smoth-scrolling -->
+
+</head>
+<!----top---->
+<header class="header">
+  <a href="#" class="logo">
+    <img src="images/logo.jpg" alt="">
+
+  </a>
+
+  <nav class="navbar">
+    <a href="home">Home</a>
+    <a href="about">About Us</a>
+    <a href="wallet">Your Wallet</a>
+    <a href="contactus">Contact Us</a>
+  </nav>
+
+
+  <div class="search">
+    <form action="#">
+      <input type="text" placeholder=" Search..." name="search">
+      <button>
+        <i class="fa fa-search" style="font-size: 18px;">
+        </i>
+      </button>
+    </form>
+  </div>
+
+  <form action="cart">
+    <button class="cart"><i class="fa fa-shopping-cart"></i> Cart</button>
+  </form>
+
+  <div class="profile">
+    <ul>
+      <li class="dropdown profile_details_drop">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"
+                                                                      aria-hidden="true"></i><span class="caret"></span></a>
+        <div class="mega-dropdown-menu">
+          <div class="w3ls_vegetables">
+            <ul class="dropdown-menu drp-mnu">
+              <li><a href="\">logout</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</header>
+<!----top---->
+
+<body>
+<header class="header">
+  <a href="#" class="logo">
+    <img src="images/logo.jpg" alt="">
+
+  </a>
+
+
+  <nav class="navbar">
+    <a href="home">Home</a>
+    <a href="about">About Us</a>
+    <a href="wallet">Your Wallet</a>
+    <a href="contactus">Contact Us</a>
+  </nav>
+
+
+  <div class="search">
+    <form action="#">
+      <input type="text" placeholder=" Search..." name="search">
+      <button>
+        <i class="fa fa-search" style="font-size: 18px;">
+        </i>
+      </button>
+    </form>
+  </div>
+
+  <form action="cart">
+    <button class="cart"><i class="fa fa-shopping-cart"></i> Cart</button>
+  </form>
+
+  <div class="profile">
+    <ul>
+      <li class="dropdown profile_details_drop">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"
+                                                                      aria-hidden="true"></i><span class="caret"></span></a>
+        <div class="mega-dropdown-menu">
+          <div class="w3ls_vegetables">
+            <ul class="dropdown-menu drp-mnu">
+              <li><a href="\">logout</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</header>
+
+
+<!-- banner -->
+
+
+<main>
+  <div class="container" style="margin-top: 5em">
+
+    <!--Section: Block Content-->
+    <section class="mt-5 mb-4">
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-lg-8">
+
+          <!-- Card -->
+          <div class="card wish-list mb-4">
+            <div class="card-body">
+
+              <h5 class="mb-4">Cart (<span th:text="${cartCount}">2</span> items)</h5>
+
+              <div class="row mb-4" th:each="item, iStat : ${cart}">
+                <div class="col-md-5 col-lg-3 col-xl-3">
+                  <div class="mb-3 mb-md-0">
+                    <img class="img-fluid w-100"
+                         th:src="@{${'/productImages/' + item.imageName}}"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg" alt="Sample">
+
+                  </div>
+                </div>
+                <div class="col-md-7 col-lg-9 col-xl-9">
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <h5 th:text="${item.name}">Blue denim shirt</h5>
+
+                        <!--                                                <p class="mb-2 text-uppercase small">Category: <span th:text="${item.category.name}"></span></p>-->
+
+                      </div>
+
+                    </div>
+                    <div class="mt-5 d-flex justify-content-between align-items-center">
+                      <div>
+                        <a href="#!" th:href="@{/cart/removeItem/{index}(index=${iStat.index})}"  type="button" class="card-link-secondary small text-uppercase mr-3" ><i
+                                class="fas fa-trash-alt mr-1"></i> Remove item </a>
+
+                      </div>
+                      <p class="mb-0"><span><strong>₹<span th:text="${item.price}"></span></strong></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="mb-4">
+
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4"style="margin-top: 5em">
+
+          <!-- Card -->
+          <div class="card mb-4">
+            <div class="card-body">
+
+              <h5 class="mb-3">The total amount </h5>
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                  Amount Payable
+                  <span>₹<span th:text="${total}"></span></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                  Shipping
+                  <span>Free</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                  <div>
+                    <strong>Total Amount</strong>
+                    <strong>
+                      <p class="mb-0">(including VAT)</p>
+                    </strong>
+                  </div>
+                  <span><strong>₹<span th:text="${total}"></span></strong></span>
+                </li>
+              </ul>
+
+              <a th:href="@{/order}" h class="btn btn-primary btn-block waves-effect waves-light" style="background-color: #7FE067; border-color: #7FE067; border-radius: 0.5 em; margin-top: 4em">PAY NOW</a>
+
+            </div>
+          </div>
+          <!-- Card -->
+
+
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </section>
+    <!--Section: Block Content-->
+
+  </div>
+</main>
+<!--Main layout-->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <div class="logo">
+        <a href="#" class="logo">
+          <img src="images/logo.jpg" alt="">
+        </a>
+
+      </div>
+      <h4>
+        Thanks for visiting! Hope to see you again :)
+      </h4>
+      <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>Contact Us</h3>
+      <a href="#" class="links">
+        <i class="fas fa-phone"></i> +91 333-444-5555
+      </a>
+      <a href="#" class="links">
+        <i class="fas fa-envelope"></i> shoppersdaily@gmail.com
+      </a>
+      <a href="#" class="links">
+        <i class="fas fa-map-marker-alt"></i> Hyderabad, India - 500078
+      </a>
+      <a href="#" class="links">
+        <i class=""></i>
+      </a> <!-- just empty line -->
+
+    </div>
+
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="home" class="links">
+        <i class="fas fa-arrow-right"></i> Home
+      </a>
+      <a href="about" class="links">
+        <i class="fas fa-arrow-right"></i> About Us
+      </a>
+      <a href="wallet" class="links">
+        <i class="fas fa-arrow-right"></i> Your Wallet
+      </a>
+      <a href="contactus" class="links">
+        <i class="fas fa-arrow-right"></i> Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- footer section ends -->
+
+
+
+<!-- //footer -->
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

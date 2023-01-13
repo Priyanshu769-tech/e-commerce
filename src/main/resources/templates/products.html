@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>LIST PRODUCTS</title>
+</head>
+<div align="center">
+  <h1 style="background-color:#D75B69; padding: 1em ;color: #3D314A; font-family: 'Raleway', sans-serif; margin-top: 1em; font-size: 3em"> New Products</h1>
+  <div>
+    <form th:action="@{/products}">
+      Filter:
+      <input type="text" name="keyword"/>
+      &nbsp;
+      <input type="submit" value="Search"/>
+      &nbsp;
+      <input type="button" value="Clear"/>
+    </form>
+  </div>
+<div>
+    <table>
+      <thead class="thead-light">
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif; padding: 1em;font-weight: 600">ID</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Name</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Made in</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Price </th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Category</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em;font-weight: 600">Preview</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em">Edit</th>
+      <th style="color: #3D314A; font-family: 'Raleway', sans-serif;padding: 1em">Delete</th>
+
+      <thead>
+      </thead>
+      <tbody>
+      <tr th:each="product : ${listProducts}">
+        <td th:text="${product.id}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Product ID</td>
+        <td th:text="${product.name}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Name</td>
+        <td th:text="${product.madein}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Made in</td>
+        <td th:text="${product.price}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Price</td>
+        <td th:text="${product.category.name}" style="color: #3D314A; font-family: 'Raleway', sans-serif;">Name</td>
+        <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
+
+          <td style="margin: 20px 0"><a th:href="@{'/products/edit/' +${product.id}}"class="btn btn-success">Edit</a></td>
+          <td style="margin: 20px 0"><a th:href="@{'/products/delete/' +${product.id}}"class="btn btn-danger">Delete</a></td>
+      </tr>
+
+
+
+
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+</html>

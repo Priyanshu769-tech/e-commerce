@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LIST CATEGORIES</title>
+</head>
+<div align="center">
+  <h1 style="background-color:#D75B69; padding: 1em ;color: #3D314A; font-family: 'Raleway', sans-serif; margin-top: 1em; font-size: 3em"> New Categories</h1>
+  <div>
+    <table>
+      <thead>
+      <th style="padding: 1em; font-family: 'Raleway', sans-serif; font-weight: 600">ID</th>
+      <th style="padding: 1em; font-family: 'Raleway', sans-serif;font-weight: 600">Name</th>
+      <thead>
+      </thead>
+      <tbody>
+      <tr th:each="product : ${listCategories}">
+        <td th:text="${product.id}" style="padding: 2em; font-family: 'Raleway', sans-serif;">Product ID</td>
+        <td th:text="${product.name}" style="padding: 2em;  font-family: 'Raleway', sans-serif;">Name</td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+</div>
+
+<body>
+
+</body>
+</html>
